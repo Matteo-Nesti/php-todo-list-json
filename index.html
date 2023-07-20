@@ -36,16 +36,16 @@
           <div class="task fs-3" v-for="task in tasks">{{task}}</div>
         </div>
 
-        <form @submit.prevent="">
+        <form @submit.prevent="addTask">
           <div class="input-group p-3">
-            <button class="btn btn-warning" type="button" id="button-addon1">
+            <button class="btn btn-warning" type="submit" id="button-addon1">
               Aggiungi!
             </button>
             <input
               type="text"
               class="form-control"
               placeholder="inserisci un task"
-              v-model="newTask"
+              v-model.trim="newTask"
             />
           </div>
         </form>

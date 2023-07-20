@@ -11,4 +11,18 @@ const app = Vue.createApp({
       this.tasks = res.data;
     });
   },
+
+  methods: {
+    addTask() {
+      const data = { task: this.newTask };
+      const config = {
+        headers: { "Content-Type": "multipart/form-data" },
+      };
+      axios
+        .post("http://localhost/PHP-TODO-LIST-JSON/API/", data, config)
+        .then((res) => {
+          console.log(this.newTask);
+        });
+    },
+  },
 }).mount("#root");
