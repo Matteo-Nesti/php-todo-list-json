@@ -14,14 +14,15 @@ const app = Vue.createApp({
 
   methods: {
     addTask() {
-      const data = { task: this.newTask };
+      const data = { 'task': this.newTask };
       const config = {
         headers: { "Content-Type": "multipart/form-data" },
       };
       axios
         .post("http://localhost/PHP-TODO-LIST-JSON/API/", data, config)
         .then((res) => {
-          console.log(this.newTask);
+          this.tasks = res.data;
+          this.newTask = '';
         });
     },
   },
