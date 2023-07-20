@@ -21,6 +21,7 @@ const app = Vue.createApp({
       axios
         .post("http://localhost/PHP-TODO-LIST-JSON/API/", data, config)
         .then((res) => {
+          this.newTask = { id: 5, name: this.newTask, status: 'undone' }
           this.tasks = res.data;
           this.newTask = '';
         });

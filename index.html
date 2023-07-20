@@ -33,7 +33,14 @@
         </div>
 
         <div class="task-container">
-          <div class="task fs-3" v-for="task in tasks">{{task}}</div>
+          <div
+            class="task fs-3"
+            v-for="task in tasks"
+            :key="task.id"
+            :class="{'done' : task.status === 'done'}"
+          >
+            {{task.name}}
+          </div>
         </div>
 
         <form @submit.prevent="addTask">
